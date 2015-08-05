@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction) pressOKAction:(UIButton*) sender;
 
 @end
 

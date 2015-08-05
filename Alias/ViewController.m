@@ -25,4 +25,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+
+- (IBAction) pressOKAction:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
