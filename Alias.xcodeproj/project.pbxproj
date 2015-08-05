@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9755B0171B726509002286BF /* AMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0161B726509002286BF /* AMTeam.m */; };
 		9755B01A1B726586002286BF /* AMGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0191B726586002286BF /* AMGame.m */; };
-		9755B01D1B72662D002286BF /* AMWordPocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPocket.m */; };
+		9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPachage.m */; };
 		979882571B7217EC00580188 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882561B7217EC00580188 /* main.m */; };
 		9798825A1B7217EC00580188 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882591B7217EC00580188 /* AppDelegate.m */; };
 		9798825D1B7217EC00580188 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* ViewController.m */; };
@@ -68,8 +68,8 @@
 		9755B0161B726509002286BF /* AMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTeam.m; sourceTree = "<group>"; };
 		9755B0181B726586002286BF /* AMGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGame.h; sourceTree = "<group>"; };
 		9755B0191B726586002286BF /* AMGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGame.m; sourceTree = "<group>"; };
-		9755B01B1B72662D002286BF /* AMWordPocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPocket.h; sourceTree = "<group>"; };
-		9755B01C1B72662D002286BF /* AMWordPocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWordPocket.m; sourceTree = "<group>"; };
+		9755B01B1B72662D002286BF /* AMWordPachage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPachage.h; sourceTree = "<group>"; };
+		9755B01C1B72662D002286BF /* AMWordPachage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWordPachage.m; sourceTree = "<group>"; };
 		979882511B7217EC00580188 /* Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979882551B7217EC00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		979882561B7217EC00580188 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 				9755B0161B726509002286BF /* AMTeam.m */,
 				9755B0181B726586002286BF /* AMGame.h */,
 				9755B0191B726586002286BF /* AMGame.m */,
-				9755B01B1B72662D002286BF /* AMWordPocket.h */,
-				9755B01C1B72662D002286BF /* AMWordPocket.m */,
+				9755B01B1B72662D002286BF /* AMWordPachage.h */,
+				9755B01C1B72662D002286BF /* AMWordPachage.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9755B01D1B72662D002286BF /* AMWordPocket.m in Sources */,
+				9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */,
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
 				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
