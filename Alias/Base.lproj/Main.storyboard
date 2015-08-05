@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="pu5-Vw-kNh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bFc-wa-Y3g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="P6g-fJ-huX">
                                         <rect key="frame" x="264" y="16" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfor Alias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Kr-HK-4YY">
                                         <rect key="frame" x="99" y="26" width="98" height="21"/>
@@ -77,14 +77,35 @@
                                 </state>
                                 <state key="selected" backgroundImage="btn game rule click.png"/>
                                 <state key="highlighted" backgroundImage="btn game rule click.png"/>
+                                <connections>
+                                    <segue destination="pu5-Vw-kNh" kind="push" id="5bf-p2-El6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Bqz-cq-Zjh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="277" y="392"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qOi-XV-lKj">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="bFc-wa-Y3g" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nch-yY-aY7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="cHm-xG-cuA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulT-jM-AoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-186" y="392"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pdh-aP-eWl">
@@ -133,17 +154,29 @@
                                 <rect key="frame" x="0.0" y="95" width="320" height="479"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkv-ZO-MAd">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="btn OK.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="btn new game click.png"/>
+                                <state key="highlighted" backgroundImage="btn OK click.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OXy-8R-2cY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvD-46-Bw6" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="703" y="392"/>
+            <point key="canvasLocation" x="751" y="392"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg.png" width="433" height="645"/>
+        <image name="btn OK click.png" width="250" height="59"/>
+        <image name="btn OK.png" width="250" height="59"/>
         <image name="btn add words click.png" width="255" height="70"/>
         <image name="btn add words.png" width="255" height="70"/>
         <image name="btn continue click.png" width="255" height="70"/>
