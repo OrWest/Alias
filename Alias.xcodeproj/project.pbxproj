@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9755B0171B726509002286BF /* AMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0161B726509002286BF /* AMTeam.m */; };
+		9755B01A1B726586002286BF /* AMGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0191B726586002286BF /* AMGame.m */; };
+		9755B01D1B72662D002286BF /* AMWordPocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPocket.m */; };
 		979882571B7217EC00580188 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882561B7217EC00580188 /* main.m */; };
 		9798825A1B7217EC00580188 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882591B7217EC00580188 /* AppDelegate.m */; };
 		9798825D1B7217EC00580188 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* ViewController.m */; };
@@ -47,6 +50,7 @@
 		979882BB1B7218A900580188 /* progress bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798829A1B7218A900580188 /* progress bar.png */; };
 		979882BC1B7218A900580188 /* round logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798829B1B7218A900580188 /* round logo.png */; };
 		979882C01B721E2C00580188 /* Obelix pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 979882BE1B7218D200580188 /* Obelix pro.ttf */; };
+		979882C51B725AF700580188 /* AMGameContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882C41B725AF700580188 /* AMGameContoller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9755B0151B726509002286BF /* AMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTeam.h; sourceTree = "<group>"; };
+		9755B0161B726509002286BF /* AMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTeam.m; sourceTree = "<group>"; };
+		9755B0181B726586002286BF /* AMGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGame.h; sourceTree = "<group>"; };
+		9755B0191B726586002286BF /* AMGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGame.m; sourceTree = "<group>"; };
+		9755B01B1B72662D002286BF /* AMWordPocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPocket.h; sourceTree = "<group>"; };
+		9755B01C1B72662D002286BF /* AMWordPocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWordPocket.m; sourceTree = "<group>"; };
 		979882511B7217EC00580188 /* Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979882551B7217EC00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		979882561B7217EC00580188 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +116,8 @@
 		9798829A1B7218A900580188 /* progress bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress bar.png"; sourceTree = "<group>"; };
 		9798829B1B7218A900580188 /* round logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round logo.png"; sourceTree = "<group>"; };
 		979882BE1B7218D200580188 /* Obelix pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Obelix pro.ttf"; sourceTree = "<group>"; };
+		979882C31B725AF700580188 /* AMGameContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGameContoller.h; sourceTree = "<group>"; };
+		979882C41B725AF700580188 /* AMGameContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGameContoller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +138,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9755B0131B7264EE002286BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9755B0151B726509002286BF /* AMTeam.h */,
+				9755B0161B726509002286BF /* AMTeam.m */,
+				9755B0181B726586002286BF /* AMGame.h */,
+				9755B0191B726586002286BF /* AMGame.m */,
+				9755B01B1B72662D002286BF /* AMWordPocket.h */,
+				9755B01C1B72662D002286BF /* AMWordPocket.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		979882481B7217EC00580188 = {
 			isa = PBXGroup;
 			children = (
@@ -147,13 +172,16 @@
 		979882531B7217EC00580188 /* Alias */ = {
 			isa = PBXGroup;
 			children = (
+				9755B0131B7264EE002286BF /* Models */,
+				979882C31B725AF700580188 /* AMGameContoller.h */,
+				979882C41B725AF700580188 /* AMGameContoller.m */,
 				979882581B7217EC00580188 /* AppDelegate.h */,
 				979882591B7217EC00580188 /* AppDelegate.m */,
 				9798825B1B7217EC00580188 /* ViewController.h */,
 				9798825C1B7217EC00580188 /* ViewController.m */,
 				9798825E1B7217EC00580188 /* Main.storyboard */,
-				979882BD1B7218B700580188 /* Resources */,
 				979882611B7217EC00580188 /* Images.xcassets */,
+				979882BD1B7218B700580188 /* Resources */,
 				979882541B7217EC00580188 /* Supporting Files */,
 			);
 			path = Alias;
@@ -375,8 +403,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9755B01D1B72662D002286BF /* AMWordPocket.m in Sources */,
+				9755B0171B726509002286BF /* AMTeam.m in Sources */,
 				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
+				9755B01A1B726586002286BF /* AMGame.m in Sources */,
+				979882C51B725AF700580188 /* AMGameContoller.m in Sources */,
 				979882571B7217EC00580188 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +596,7 @@
 				979882761B7217ED00580188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		979882771B7217ED00580188 /* Build configuration list for PBXNativeTarget "AliasTests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +605,7 @@
 				979882791B7217ED00580188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
