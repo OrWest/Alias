@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSArray* teams;
 @property (strong, nonatomic) AMWordPachage* currentWordPocket;
 @property (assign, nonatomic) NSInteger roundTimeInSecond;
-@property (assign, nonatomic) NSInteger wordsToWin;
+@property (assign, nonatomic) NSInteger scoreToWin;
 @property (assign, nonatomic) BOOL lastWordForEveryone;
 @property (assign, nonatomic) BOOL extraQuest;
 
@@ -24,5 +24,7 @@
 @property (strong, nonatomic) AMTeam* currentTeam;
 @property (assign, nonatomic) NSInteger answeredCount;
 @property (assign, nonatomic) NSInteger notAnsweredCount;
+
+- (void) startGameWithTeam:(AMTeam*) team andRound:(NSInteger) round;
 
 @end

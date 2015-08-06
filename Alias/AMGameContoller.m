@@ -31,6 +31,11 @@
             AMTeam* team = [[AMTeam alloc] initWithName:[defaultTeamNames objectAtIndex:i]];
             [self.teams addObject:team];
         }
+        
+        for (int i = 0; i < 3; i++) {
+            AMWordPachage* pachage = [[AMWordPachage alloc] initPachageWithDifficulty:i];
+            [self.wordPackages addObject:pachage];
+        }
     }
     return self;
 }
@@ -61,6 +66,11 @@
     return uniqueName;
 }
 
+- (void) removeTeamAtIndex:(NSInteger) index {
+    [self.teams removeObjectAtIndex:index];
+}
+
+
 #pragma mark - Private methods
 
 - (BOOL) isUniqueName:(NSString*) name {
@@ -86,6 +96,8 @@
         
         [gameTeams addObject:team];
     }
+    
+    self.currentGame.teams = gameTeams;
 }
 
 - (void) setRoundTime:(NSInteger) roundTime wordCountToWin:(NSInteger)
@@ -94,19 +106,39 @@
         AMGame* game = self.currentGame;
         
         game.roundTimeInSecond = roundTime;
-        game.wordsToWin = wordCount;
+        game.scoreToWin = wordCount;
         game.lastWordForEveryone = lastWord;
         game.extraQuest = extraQuest;
     }
 }
 
-- (void) setWordPocket:(AMWordPachage*) wordPackage {
+- (void) setWordPackageAtIndex:(NSInteger) index {
     if (self.currentGame) {
+        AMWordPachage* wordPackage = [self.wordPackages objectAtIndex:index];
         self.currentGame.currentWordPocket = wordPackage;
     }
 }
 
-- (void) startGame {
+#pragma mark - Game manipulation
+
+- (void) nextTeamStartGameInRount:(NSInteger) round {
+    if (!self.currentGame.currentTeam) {
+        [self startTeam:[self.currentGame.teams firstObject] andRound:round];
+    } else {
+        NSInteger indexOfCurrentTeam =
+            [self.currentGame.teams indexOfObject:self.currentGame.currentTeam];
+        if ([self.currentGame.teams count] > indexOfCurrentTeam + 1) {
+            [self startTeam:[self.currentGame.teams objectAtIndex:indexOfCurrentTeam + 1]
+                   andRound:round];
+        } else {
+            //invoke end round
+        }
+    }
+}
+
+- (void) startTeam:(AMTeam*) team andRound:(NSInteger) round {
+    [self.currentGame startGameWithTeam:team andRound:round];
+    
     self.roundTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                        target:self
                                                      selector:@selector(everySecondAction)
@@ -114,11 +146,58 @@
                                                       repeats:YES];
 }
 
+- (void) addCorrectAnswer {
+    self.currentGame.answeredCount++;
+}
+
+- (void) addNotAnswered {
+    self.currentGame.notAnsweredCount++;
+}
+
+- (BOOL) isEndGame {
+    NSArray* teams = self.currentGame.teams;
+    
+    NSInteger bestScore = 0;
+    AMTeam* teamWithBestScore = nil;
+    
+    for (AMTeam* team in teams) {
+        if (team.score > bestScore) {
+            bestScore = team.score;
+            teamWithBestScore = team;
+        }
+    }
+    
+    if (bestScore > self.currentGame.scoreToWin) {
+        NSInteger teamCountWithBestScore = 0;
+        for (AMTeam* team in teams) {
+            if (team.score == bestScore) {
+                teamCountWithBestScore++;
+            }
+        }
+        
+        if (teamCountWithBestScore > 1) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else {
+        return NO;
+    }
+}
+
 
 #pragma mark - Timer Action
 
 - (void) everySecondAction {
-    
+    if (self.currentGame.secondRemain > 0) {
+        self.currentGame.secondRemain--;
+    }
+    else
+    {
+        NSLog(@"Game ended: secondRemain: %ld", self.currentGame.secondRemain);
+        [self.roundTimer invalidate];
+        //invoke end game
+    }
 }
 
 
