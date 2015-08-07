@@ -10,6 +10,9 @@
 
 @interface AMGameContoller ()
 
+@property (strong, nonatomic) NSMutableArray* teams;
+@property (strong, nonatomic) NSMutableArray* wordPackages;
+@property (strong, nonatomic) AMGame* currentGame;
 @property (strong, nonatomic) NSTimer* roundTimer;
 
 @end
@@ -41,6 +44,15 @@
 }
 
 #pragma mark - Team manipulation
+
+- (NSArray*) getAllTeamsName {
+    NSMutableArray* teamsName = [NSMutableArray array];
+    for (AMTeam* team in self.teams) {
+        [teamsName addObject:team.name];
+    }
+    
+    return teamsName;
+}
 
 - (BOOL) addTeamWithName:(NSString *)name {
     
@@ -131,7 +143,7 @@
             [self startTeam:[self.currentGame.teams objectAtIndex:indexOfCurrentTeam + 1]
                    andRound:round];
         } else {
-            //invoke end round
+            NSLog(@"Bad invoke nextTeam");
         }
     }
 }
@@ -148,10 +160,26 @@
 
 - (void) addCorrectAnswer {
     self.currentGame.answeredCount++;
+    
 }
 
 - (void) addNotAnswered {
     self.currentGame.notAnsweredCount++;
+}
+
+- (void) endRound:(NSInteger) round{
+    AMTeam* currentTeam = self.currentGame.currentTeam;
+    if ([currentTeam isEqual:[self.currentGame.teams lastObject]]) {
+        if ([self isEndGame]) {
+            //invoke end game
+        } else {
+            self.currentGame.currentTeam = nil;
+            round++;
+            [self nextTeamStartGameInRount:round];
+        }
+    } else {
+        [self nextTeamStartGameInRount:round];
+    }
 }
 
 - (BOOL) isEndGame {
@@ -191,12 +219,13 @@
 - (void) everySecondAction {
     if (self.currentGame.secondRemain > 0) {
         self.currentGame.secondRemain--;
+        NSLog(@"Timer: %ld", self.currentGame.secondRemain);
     }
     else
     {
-        NSLog(@"Game ended: secondRemain: %ld", self.currentGame.secondRemain);
+        NSLog(@"Game ended: %ld", self.currentGame.secondRemain);
         [self.roundTimer invalidate];
-        //invoke end game
+        //invoke end round
     }
 }
 

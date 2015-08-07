@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AMGameContoller.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    AMGameContoller* gc = [[AMGameContoller alloc] init];
+    
+    //[gc changeNameOfTeamAtIndex:1 toName:@"Криперы"];
+    //[gc addTeamWithName:@"murmur"];
+    //[gc removeTeamAtIndex:0];
+    [gc createNewGameWithTeamsAtIndexes:[NSArray arrayWithObjects:@0, @1, nil]];
+    [gc setRoundTime:10 wordCountToWin:3 lastWordToEveryone:NO andExtraQuest:NO];
+    [gc setWordPackageAtIndex:2];
+    
+    [gc nextTeamStartGameInRount:0];
+    
     return YES;
 }
 

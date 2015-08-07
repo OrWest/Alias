@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 975361241B74CB7B00C76208 /* AMTeamCell.m */; };
+		975361291B74EF4900C76208 /* AMWordPachageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 975361281B74EF4900C76208 /* AMWordPachageCell.m */; };
 		9755B0171B726509002286BF /* AMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0161B726509002286BF /* AMTeam.m */; };
 		9755B01A1B726586002286BF /* AMGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0191B726586002286BF /* AMGame.m */; };
 		9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPachage.m */; };
@@ -64,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		975361231B74CB7B00C76208 /* AMTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTeamCell.h; sourceTree = "<group>"; };
+		975361241B74CB7B00C76208 /* AMTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTeamCell.m; sourceTree = "<group>"; };
+		975361271B74EF4900C76208 /* AMWordPachageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPachageCell.h; sourceTree = "<group>"; };
+		975361281B74EF4900C76208 /* AMWordPachageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWordPachageCell.m; sourceTree = "<group>"; };
 		9755B0151B726509002286BF /* AMTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTeam.h; sourceTree = "<group>"; };
 		9755B0161B726509002286BF /* AMTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTeam.m; sourceTree = "<group>"; };
 		9755B0181B726586002286BF /* AMGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGame.h; sourceTree = "<group>"; };
@@ -138,6 +144,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		975361261B74CB7F00C76208 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				975361231B74CB7B00C76208 /* AMTeamCell.h */,
+				975361241B74CB7B00C76208 /* AMTeamCell.m */,
+				975361271B74EF4900C76208 /* AMWordPachageCell.h */,
+				975361281B74EF4900C76208 /* AMWordPachageCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		9755B0131B7264EE002286BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,13 +189,14 @@
 		979882531B7217EC00580188 /* Alias */ = {
 			isa = PBXGroup;
 			children = (
+				975361261B74CB7F00C76208 /* Cells */,
 				9755B0131B7264EE002286BF /* Models */,
 				979882C31B725AF700580188 /* AMGameContoller.h */,
 				979882C41B725AF700580188 /* AMGameContoller.m */,
-				979882581B7217EC00580188 /* AppDelegate.h */,
-				979882591B7217EC00580188 /* AppDelegate.m */,
 				9798825B1B7217EC00580188 /* ViewController.h */,
 				9798825C1B7217EC00580188 /* ViewController.m */,
+				979882581B7217EC00580188 /* AppDelegate.h */,
+				979882591B7217EC00580188 /* AppDelegate.m */,
 				9798825E1B7217EC00580188 /* Main.storyboard */,
 				979882611B7217EC00580188 /* Images.xcassets */,
 				979882BD1B7218B700580188 /* Resources */,
@@ -407,8 +425,10 @@
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
 				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
+				975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */,
 				9755B01A1B726586002286BF /* AMGame.m in Sources */,
 				979882C51B725AF700580188 /* AMGameContoller.m in Sources */,
+				975361291B74EF4900C76208 /* AMWordPachageCell.m in Sources */,
 				979882571B7217EC00580188 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

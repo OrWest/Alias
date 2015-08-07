@@ -13,10 +13,7 @@
 
 @interface AMGameContoller : NSObject
 
-@property (strong, nonatomic) NSMutableArray* teams;
-@property (strong, nonatomic) NSMutableArray* wordPackages;
-@property (strong, nonatomic) AMGame* currentGame;
-
+- (NSArray*) getAllTeamsName;
 - (BOOL) addTeamWithName:(NSString*) name;
 - (BOOL) changeNameOfTeamAtIndex:(NSInteger)index toName:(NSString*) name;
 - (void) removeTeamAtIndex:(NSInteger) index;

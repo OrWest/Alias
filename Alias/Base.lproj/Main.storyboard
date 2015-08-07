@@ -7,6 +7,17 @@
         <mutableArray key="Obelix pro.ttf">
             <string>ObelixPro</string>
             <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
+            <string>ObelixPro</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -55,6 +66,9 @@
                                 </state>
                                 <state key="selected" backgroundImage="btn new game click.png"/>
                                 <state key="highlighted" backgroundImage="btn new game click.png"/>
+                                <connections>
+                                    <segue destination="wuT-1f-yPM" kind="push" identifier="NewGame" id="hbI-Wl-Ckd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gjV-EH-Nnx">
                                 <rect key="frame" x="60" y="498" width="200" height="50"/>
@@ -128,10 +142,6 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="488"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="euG-3J-Od4">
-                                <rect key="frame" x="16" y="205" width="288" height="285"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bkv-ZO-MAd">
                                 <rect key="frame" x="60" y="498" width="200" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -141,7 +151,7 @@
                                 <state key="selected" backgroundImage="btn new game click.png"/>
                                 <state key="highlighted" backgroundImage="btn OK click.png"/>
                                 <connections>
-                                    <action selector="pressOKAction:" destination="pu5-Vw-kNh" eventType="touchUpInside" id="L5K-WB-cYU"/>
+                                    <action selector="pressBackAction:" destination="pu5-Vw-kNh" eventType="touchUpInside" id="Wq3-F9-4LX"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="cgQ-oQ-00m">
@@ -184,6 +194,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZaH-RE-J4p">
+                                <rect key="frame" x="16" y="178" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -236,7 +250,7 @@
                                 <state key="selected" backgroundImage="btn new game click.png"/>
                                 <state key="highlighted" backgroundImage="btn buy click.png"/>
                                 <connections>
-                                    <action selector="pressOKAction:" destination="bY9-WO-zY9" eventType="touchUpInside" id="7IS-CQ-Kps"/>
+                                    <action selector="pressBackAction:" destination="bY9-WO-zY9" eventType="touchUpInside" id="iKq-QA-j7C"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код покупки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lok-BM-P8W">
@@ -261,8 +275,459 @@
             </objects>
             <point key="canvasLocation" x="711" y="841"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Kwb-LY-Fhx">
+            <objects>
+                <viewController id="wuT-1f-yPM" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vFe-eD-ALv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="vNj-gb-Eqg">
+                                <rect key="frame" x="0.0" y="86" width="320" height="488"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="feS-XT-qE4">
+                                <rect key="frame" x="60" y="440" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="add team.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="btn new game click.png"/>
+                                <state key="highlighted" backgroundImage="add team click.png"/>
+                            </button>
+                            <view contentMode="scaleToFill" id="3U9-EL-XnJ">
+                                <rect key="frame" x="0.0" y="86" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="lef-ci-wXr">
+                                        <rect key="frame" x="0.0" y="80" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите команды" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zcf-2D-MCk">
+                                        <rect key="frame" x="8" y="36" width="304" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="19"/>
+                                        <color key="textColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="iMM-U4-1Uy">
+                                <rect key="frame" x="0.0" y="20" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="aqm-p8-S1b">
+                                        <rect key="frame" x="8" y="8" width="75" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="qxk-4b-DqX">
+                                        <rect key="frame" x="264" y="16" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfor Alias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LrN-d5-HpO">
+                                        <rect key="frame" x="99" y="26" width="98" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="j09-WV-JK4">
+                                <rect key="frame" x="16" y="178" width="288" height="254"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TeamCell" id="DeS-fr-9cd" customClass="AMTeamCell">
+                                        <rect key="frame" x="0.0" y="22" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DeS-fr-9cd" id="8NB-Ez-1zK">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KXb-X3-JxC">
+                                                    <rect key="frame" x="8" y="11" width="206" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="16"/>
+                                                    <color key="textColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="iRx-WL-gd3">
+                                                    <rect key="frame" x="222" y="11" width="22" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CEF-gI-RRq">
+                                                    <rect key="frame" x="252" y="8" width="28" height="27.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="check unuse.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted" backgroundImage="check use.png"/>
+                                                    <connections>
+                                                        <action selector="pressTeamCheckerAction:" destination="DeS-fr-9cd" eventType="touchUpInside" id="hIn-wF-4pY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="teamName" destination="KXb-X3-JxC" id="o0g-82-d65"/>
+                                            <outlet property="viewController" destination="wuT-1f-yPM" id="GeG-6K-uWz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wuT-1f-yPM" id="RhW-SR-tLx"/>
+                                </connections>
+                            </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nS6-RC-lPu">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="btn next.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="btn new game click.png"/>
+                                <state key="highlighted" backgroundImage="btn next click.png"/>
+                                <connections>
+                                    <segue destination="8id-v3-Ndk" kind="push" identifier="TeamChecked" id="2tg-IS-UAm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pXw-RL-xJ6"/>
+                    <connections>
+                        <outlet property="nextButton" destination="nS6-RC-lPu" id="YoW-vd-lfd"/>
+                        <outlet property="tableView" destination="j09-WV-JK4" id="Qx9-EK-eUa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovL-YH-x0P" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711" y="178"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FBn-Sw-sUW">
+            <objects>
+                <viewController id="8id-v3-Ndk" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PP3-qx-Rgh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="gQF-yh-Zof">
+                                <rect key="frame" x="0.0" y="86" width="320" height="488"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="nbq-Jt-fTR">
+                                <rect key="frame" x="0.0" y="86" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="0uB-2F-AVl">
+                                        <rect key="frame" x="0.0" y="80" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Параметры игры" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wY8-U8-5Nu">
+                                        <rect key="frame" x="8" y="36" width="304" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="19"/>
+                                        <color key="textColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="WnA-Fq-X09">
+                                <rect key="frame" x="0.0" y="20" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="jes-QR-UQr">
+                                        <rect key="frame" x="8" y="8" width="75" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="n6q-08-uQl">
+                                        <rect key="frame" x="264" y="16" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfor Alias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F15-Tc-M4H">
+                                        <rect key="frame" x="99" y="26" width="98" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время раунда" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zZu-f5-fym">
+                                <rect key="frame" x="16" y="175" width="238" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="сек" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uCv-IL-mnB">
+                                <rect key="frame" x="283" y="177" width="21" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="30" maxValue="90" id="sBD-DP-GLv">
+                                <rect key="frame" x="14" y="213" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeRoundTimeAction:" destination="8id-v3-Ndk" eventType="valueChanged" id="clv-Ms-RqR"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество слов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zgz-GD-cCT">
+                                <rect key="frame" x="16" y="260" width="238" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="для победы" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gK9-sc-6ph">
+                                <rect key="frame" x="16" y="280" width="238" height="14"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tlG-gq-HO7">
+                                <rect key="frame" x="256" y="260" width="28" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="2" maxValue="22" id="pQX-3d-3te">
+                                <rect key="frame" x="14" y="302" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeWordsToWinAction:" destination="8id-v3-Ndk" eventType="valueChanged" id="RLO-lN-5Tw"/>
+                                </connections>
+                            </slider>
+                            <view contentMode="scaleToFill" id="g7B-u2-boe">
+                                <rect key="frame" x="0.0" y="250" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="bzf-2d-Rpf">
+                                <rect key="frame" x="0.0" y="342" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="fGF-Ud-wEQ">
+                                <rect key="frame" x="0.0" y="404" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="ilE-OY-t1I">
+                                <rect key="frame" x="0.0" y="463" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gTx-gy-gr6">
+                                <rect key="frame" x="256" y="170" width="28" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Последнее - слово для всех" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fbT-Uh-FKf">
+                                <rect key="frame" x="16" y="352" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дополнительное задание" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qqE-w8-6rQ">
+                                <rect key="frame" x="16" y="423" width="247" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово не отгаданное в лимит время, отгадывают все" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VXs-3J-atV">
+                                <rect key="frame" x="16" y="368" width="148" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LEb-bL-qBY">
+                                <rect key="frame" x="271" y="352" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="check OFF.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="check ON.png"/>
+                                <connections>
+                                    <action selector="pressCheckerAction:" destination="8id-v3-Ndk" eventType="touchUpInside" id="kZy-Va-T1f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cta-YZ-bHC">
+                                <rect key="frame" x="271" y="414" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="check OFF.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="check ON.png"/>
+                                <connections>
+                                    <action selector="pressCheckerAction:" destination="8id-v3-Ndk" eventType="touchUpInside" id="nyc-qg-VYC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vzj-TB-Co9">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="btn next.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="btn next click.png"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="продолжительность одного раунда" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e4Q-ew-R4a">
+                                <rect key="frame" x="16" y="194" width="238" height="16"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RiI-Hd-6Yf"/>
+                    <connections>
+                        <outlet property="extraQuestChecker" destination="cta-YZ-bHC" id="7YE-il-Ygv"/>
+                        <outlet property="lastWordChecker" destination="LEb-bL-qBY" id="eO7-Bp-s3m"/>
+                        <outlet property="roundTimeInSecond" destination="gTx-gy-gr6" id="0GS-Nl-r27"/>
+                        <outlet property="wordsToWin" destination="tlG-gq-HO7" id="VCM-6n-kAX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iIS-kk-4z7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="178"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7gs-F4-myy">
+            <objects>
+                <viewController id="fFt-3D-LnT" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qyc-OC-lCj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" id="4lL-DE-HoM">
+                                <rect key="frame" x="0.0" y="86" width="320" height="488"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="ZMw-Xm-9dc">
+                                <rect key="frame" x="0.0" y="86" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="bBE-37-3jA">
+                                        <rect key="frame" x="0.0" y="80" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите команды" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r1q-Zi-bea">
+                                        <rect key="frame" x="8" y="36" width="304" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="19"/>
+                                        <color key="textColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="P4A-IG-gSG">
+                                <rect key="frame" x="0.0" y="20" width="320" height="66"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="utr-v3-BsG">
+                                        <rect key="frame" x="8" y="8" width="75" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="6dr-kV-ife">
+                                        <rect key="frame" x="264" y="16" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farfor Alias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5EC-sI-yY1">
+                                        <rect key="frame" x="99" y="26" width="98" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MfA-OJ-7Sh">
+                                <rect key="frame" x="16" y="178" width="288" height="254"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.78967408459999999" green="0.058452217850000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hTg-1V-vvW" customClass="AMWordPachageCell">
+                                        <rect key="frame" x="0.0" y="22" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTg-1V-vvW" id="sqC-jm-rTX">
+                                            <rect key="frame" x="0.0" y="0.0" width="249" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmr-QB-z2b">
+                                                    <rect key="frame" x="8" y="8" width="233" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="ObelixPro" family="ObelixPro" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sRh-up-hq9">
+                                                    <rect key="frame" x="8" y="22" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="difficulty" destination="sRh-up-hq9" id="uOD-DA-zmr"/>
+                                            <outlet property="name" destination="bmr-QB-z2b" id="xBs-ZY-uVz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fFt-3D-LnT" id="nBz-4m-lvo"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2wb-YS-PoJ">
+                                <rect key="frame" x="60" y="498" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" backgroundImage="btn start game.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="btn new game click.png"/>
+                                <state key="highlighted" backgroundImage="btn start game click.png"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h0e-X4-tBS"/>
+                    <connections>
+                        <outlet property="nextButton" destination="2wb-YS-PoJ" id="A6E-VZ-UIm"/>
+                        <outlet property="tableView" destination="MfA-OJ-7Sh" id="muc-7n-JaK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXO-fO-nhE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="178"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="add team click.png" width="250" height="59"/>
+        <image name="add team.png" width="250" height="59"/>
         <image name="bg.png" width="433" height="645"/>
         <image name="btn OK click.png" width="250" height="59"/>
         <image name="btn OK.png" width="250" height="59"/>
@@ -276,6 +741,14 @@
         <image name="btn game rule.png" width="255" height="70"/>
         <image name="btn new game click.png" width="255" height="70"/>
         <image name="btn new game.png" width="255" height="70"/>
+        <image name="btn next click.png" width="250" height="59"/>
+        <image name="btn next.png" width="250" height="59"/>
+        <image name="btn start game click.png" width="250" height="59"/>
+        <image name="btn start game.png" width="250" height="59"/>
+        <image name="check OFF.png" width="254" height="253"/>
+        <image name="check ON.png" width="254" height="253"/>
+        <image name="check unuse.png" width="546" height="597"/>
+        <image name="check use.png" width="546" height="597"/>
         <image name="field pay.png" width="756" height="99"/>
         <image name="logo.png" width="159" height="106"/>
         <image name="map.png" width="87" height="87"/>
