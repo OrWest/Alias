@@ -124,6 +124,15 @@
     }
 }
 
+- (NSArray*) getAllWordPackages {
+    NSMutableArray* tempArray = [NSMutableArray array];
+    for (AMWordPachage* package in self.wordPackages) {
+        [tempArray addObject:package];
+    }
+    
+    return tempArray;
+}
+
 - (void) setWordPackageAtIndex:(NSInteger) index {
     if (self.currentGame) {
         AMWordPachage* wordPackage = [self.wordPackages objectAtIndex:index];

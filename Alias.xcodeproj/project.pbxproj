@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97496D101B750DA1003D0F4E /* AMPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */; };
 		975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 975361241B74CB7B00C76208 /* AMTeamCell.m */; };
 		975361291B74EF4900C76208 /* AMWordPachageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 975361281B74EF4900C76208 /* AMWordPachageCell.m */; };
 		9755B0171B726509002286BF /* AMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0161B726509002286BF /* AMTeam.m */; };
@@ -66,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPackageViewController.h; sourceTree = "<group>"; };
+		97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPackageViewController.m; sourceTree = "<group>"; };
 		975361231B74CB7B00C76208 /* AMTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTeamCell.h; sourceTree = "<group>"; };
 		975361241B74CB7B00C76208 /* AMTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTeamCell.m; sourceTree = "<group>"; };
 		975361271B74EF4900C76208 /* AMWordPachageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPachageCell.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				9755B0131B7264EE002286BF /* Models */,
 				979882C31B725AF700580188 /* AMGameContoller.h */,
 				979882C41B725AF700580188 /* AMGameContoller.m */,
+				97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */,
+				97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */,
 				9798825B1B7217EC00580188 /* ViewController.h */,
 				9798825C1B7217EC00580188 /* ViewController.m */,
 				979882581B7217EC00580188 /* AppDelegate.h */,
@@ -424,6 +429,7 @@
 				9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */,
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
 				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
+				97496D101B750DA1003D0F4E /* AMPackageViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
 				975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */,
 				9755B01A1B726586002286BF /* AMGame.m in Sources */,

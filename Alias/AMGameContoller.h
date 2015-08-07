@@ -23,6 +23,7 @@
        wordCountToWin:(NSInteger) wordCount
    lastWordToEveryone:(BOOL) lastWord
         andExtraQuest:(BOOL) extraQuest;
+- (NSArray*) getAllWordPackages;
 - (void) setWordPackageAtIndex:(NSInteger) index;
 
 - (void) nextTeamStartGameInRount:(NSInteger) round;

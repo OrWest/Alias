@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AMGameContoller.h"
 #import "AMTeamCell.h"
+#import "AMPackageViewController.h"
 
 @interface ViewController ()
 
@@ -99,6 +100,8 @@
         self.extraQuestChecked = NO;
         
         //add teams indexes - teamsToPlay
+    } else if ([segue.identifier isEqualToString:@"SetSettings"]) {
+        [segue.destinationViewController installGameController:self.gameController];
     }
 }
 
