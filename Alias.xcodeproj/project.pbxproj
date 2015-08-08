@@ -54,6 +54,9 @@
 		979882BC1B7218A900580188 /* round logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798829B1B7218A900580188 /* round logo.png */; };
 		979882C01B721E2C00580188 /* Obelix pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 979882BE1B7218D200580188 /* Obelix pro.ttf */; };
 		979882C51B725AF700580188 /* AMGameContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882C41B725AF700580188 /* AMGameContoller.m */; };
+		97E956F31B75443800122719 /* AMStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E956F21B75443800122719 /* AMStartGameViewController.m */; };
+		97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF79E11B765E49008B93D9 /* AMEndViewController.m */; };
+		97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EFAF891B760A35009B688A /* AMPlayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,12 @@
 		979882BE1B7218D200580188 /* Obelix pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Obelix pro.ttf"; sourceTree = "<group>"; };
 		979882C31B725AF700580188 /* AMGameContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGameContoller.h; sourceTree = "<group>"; };
 		979882C41B725AF700580188 /* AMGameContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGameContoller.m; sourceTree = "<group>"; };
+		97E956F11B75443800122719 /* AMStartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStartGameViewController.h; sourceTree = "<group>"; };
+		97E956F21B75443800122719 /* AMStartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStartGameViewController.m; sourceTree = "<group>"; };
+		97EF79E01B765E49008B93D9 /* AMEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMEndViewController.h; sourceTree = "<group>"; };
+		97EF79E11B765E49008B93D9 /* AMEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMEndViewController.m; sourceTree = "<group>"; };
+		97EFAF881B760A35009B688A /* AMPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPlayViewController.h; sourceTree = "<group>"; };
+		97EFAF891B760A35009B688A /* AMPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPlayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,10 +205,7 @@
 				9755B0131B7264EE002286BF /* Models */,
 				979882C31B725AF700580188 /* AMGameContoller.h */,
 				979882C41B725AF700580188 /* AMGameContoller.m */,
-				97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */,
-				97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */,
-				9798825B1B7217EC00580188 /* ViewController.h */,
-				9798825C1B7217EC00580188 /* ViewController.m */,
+				97E956F41B75444600122719 /* View controllers */,
 				979882581B7217EC00580188 /* AppDelegate.h */,
 				979882591B7217EC00580188 /* AppDelegate.m */,
 				9798825E1B7217EC00580188 /* Main.storyboard */,
@@ -291,6 +297,23 @@
 				979882BE1B7218D200580188 /* Obelix pro.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		97E956F41B75444600122719 /* View controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97E956F11B75443800122719 /* AMStartGameViewController.h */,
+				97E956F21B75443800122719 /* AMStartGameViewController.m */,
+				97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */,
+				97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */,
+				9798825B1B7217EC00580188 /* ViewController.h */,
+				9798825C1B7217EC00580188 /* ViewController.m */,
+				97EFAF881B760A35009B688A /* AMPlayViewController.h */,
+				97EFAF891B760A35009B688A /* AMPlayViewController.m */,
+				97EF79E01B765E49008B93D9 /* AMEndViewController.h */,
+				97EF79E11B765E49008B93D9 /* AMEndViewController.m */,
+			);
+			name = "View controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,11 +449,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */,
 				9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */,
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
 				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
 				97496D101B750DA1003D0F4E /* AMPackageViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
+				97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */,
+				97E956F31B75443800122719 /* AMStartGameViewController.m in Sources */,
 				975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */,
 				9755B01A1B726586002286BF /* AMGame.m in Sources */,
 				979882C51B725AF700580188 /* AMGameContoller.m in Sources */,
