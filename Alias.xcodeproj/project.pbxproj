@@ -15,7 +15,7 @@
 		9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPachage.m */; };
 		979882571B7217EC00580188 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882561B7217EC00580188 /* main.m */; };
 		9798825A1B7217EC00580188 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882591B7217EC00580188 /* AppDelegate.m */; };
-		9798825D1B7217EC00580188 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* ViewController.m */; };
+		9798825D1B7217EC00580188 /* teamAndSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* teamAndSettingsViewController.m */; };
 		979882621B7217EC00580188 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979882611B7217EC00580188 /* Images.xcassets */; };
 		979882711B7217ED00580188 /* AliasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882701B7217ED00580188 /* AliasTests.m */; };
 		9798829C1B7218A900580188 /* add team click.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798827B1B7218A900580188 /* add team click.png */; };
@@ -87,8 +87,8 @@
 		979882561B7217EC00580188 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		979882581B7217EC00580188 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		979882591B7217EC00580188 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9798825B1B7217EC00580188 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9798825C1B7217EC00580188 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9798825B1B7217EC00580188 /* teamAndSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = teamAndSettingsViewController.h; sourceTree = "<group>"; };
+		9798825C1B7217EC00580188 /* teamAndSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = teamAndSettingsViewController.m; sourceTree = "<group>"; };
 		979882611B7217EC00580188 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9798826A1B7217ED00580188 /* AliasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AliasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9798826F1B7217ED00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -302,12 +302,12 @@
 		97E956F41B75444600122719 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
-				97E956F11B75443800122719 /* AMStartGameViewController.h */,
-				97E956F21B75443800122719 /* AMStartGameViewController.m */,
+				9798825B1B7217EC00580188 /* teamAndSettingsViewController.h */,
+				9798825C1B7217EC00580188 /* teamAndSettingsViewController.m */,
 				97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */,
 				97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */,
-				9798825B1B7217EC00580188 /* ViewController.h */,
-				9798825C1B7217EC00580188 /* ViewController.m */,
+				97E956F11B75443800122719 /* AMStartGameViewController.h */,
+				97E956F21B75443800122719 /* AMStartGameViewController.m */,
 				97EFAF881B760A35009B688A /* AMPlayViewController.h */,
 				97EFAF891B760A35009B688A /* AMPlayViewController.m */,
 				97EF79E01B765E49008B93D9 /* AMEndViewController.h */,
@@ -452,7 +452,7 @@
 				97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */,
 				9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */,
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
-				9798825D1B7217EC00580188 /* ViewController.m in Sources */,
+				9798825D1B7217EC00580188 /* teamAndSettingsViewController.m in Sources */,
 				97496D101B750DA1003D0F4E /* AMPackageViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
 				97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */,
