@@ -16,7 +16,6 @@
 		979882571B7217EC00580188 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882561B7217EC00580188 /* main.m */; };
 		9798825A1B7217EC00580188 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882591B7217EC00580188 /* AppDelegate.m */; };
 		9798825D1B7217EC00580188 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* ViewController.m */; };
-		979882601B7217EC00580188 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9798825E1B7217EC00580188 /* Main.storyboard */; };
 		979882621B7217EC00580188 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979882611B7217EC00580188 /* Images.xcassets */; };
 		979882711B7217ED00580188 /* AliasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882701B7217ED00580188 /* AliasTests.m */; };
 		9798829C1B7218A900580188 /* add team click.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798827B1B7218A900580188 /* add team click.png */; };
@@ -54,6 +53,7 @@
 		979882BC1B7218A900580188 /* round logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798829B1B7218A900580188 /* round logo.png */; };
 		979882C01B721E2C00580188 /* Obelix pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 979882BE1B7218D200580188 /* Obelix pro.ttf */; };
 		979882C51B725AF700580188 /* AMGameContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882C41B725AF700580188 /* AMGameContoller.m */; };
+		97E6905D1B7690E100B5970B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E6905C1B7690E100B5970B /* Main.storyboard */; };
 		97E956F31B75443800122719 /* AMStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E956F21B75443800122719 /* AMStartGameViewController.m */; };
 		97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF79E11B765E49008B93D9 /* AMEndViewController.m */; };
 		97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EFAF891B760A35009B688A /* AMPlayViewController.m */; };
@@ -89,7 +89,6 @@
 		979882591B7217EC00580188 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9798825B1B7217EC00580188 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9798825C1B7217EC00580188 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9798825F1B7217EC00580188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		979882611B7217EC00580188 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9798826A1B7217ED00580188 /* AliasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AliasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9798826F1B7217ED00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		979882BE1B7218D200580188 /* Obelix pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Obelix pro.ttf"; sourceTree = "<group>"; };
 		979882C31B725AF700580188 /* AMGameContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGameContoller.h; sourceTree = "<group>"; };
 		979882C41B725AF700580188 /* AMGameContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGameContoller.m; sourceTree = "<group>"; };
+		97E6905C1B7690E100B5970B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		97E956F11B75443800122719 /* AMStartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStartGameViewController.h; sourceTree = "<group>"; };
 		97E956F21B75443800122719 /* AMStartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStartGameViewController.m; sourceTree = "<group>"; };
 		97EF79E01B765E49008B93D9 /* AMEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMEndViewController.h; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				97E956F41B75444600122719 /* View controllers */,
 				979882581B7217EC00580188 /* AppDelegate.h */,
 				979882591B7217EC00580188 /* AppDelegate.m */,
-				9798825E1B7217EC00580188 /* Main.storyboard */,
+				97E6905C1B7690E100B5970B /* Main.storyboard */,
 				979882611B7217EC00580188 /* Images.xcassets */,
 				979882BD1B7218B700580188 /* Resources */,
 				979882541B7217EC00580188 /* Supporting Files */,
@@ -401,7 +401,6 @@
 				9798829E1B7218A900580188 /* bg.png in Resources */,
 				979882BC1B7218A900580188 /* round logo.png in Resources */,
 				979882A51B7218A900580188 /* btn end click.png in Resources */,
-				979882601B7217EC00580188 /* Main.storyboard in Resources */,
 				979882A81B7218A900580188 /* btn game rule click.png in Resources */,
 				979882A21B7218A900580188 /* btn buy.png in Resources */,
 				9798829C1B7218A900580188 /* add team click.png in Resources */,
@@ -412,6 +411,7 @@
 				979882B21B7218A900580188 /* btn start game.png in Resources */,
 				979882B91B7218A900580188 /* logo.png in Resources */,
 				979882A91B7218A900580188 /* btn game rule.png in Resources */,
+				97E6905D1B7690E100B5970B /* Main.storyboard in Resources */,
 				979882B31B7218A900580188 /* btn start.png in Resources */,
 				979882AE1B7218A900580188 /* btn OK click.png in Resources */,
 				979882B01B7218A900580188 /* btn start click.png in Resources */,
@@ -482,17 +482,6 @@
 			targetProxy = 9798826B1B7217ED00580188 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9798825E1B7217EC00580188 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9798825F1B7217EC00580188 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		979882721B7217ED00580188 /* Debug */ = {

@@ -11,9 +11,16 @@
 #import "AMTeam.h"
 #import "AMWordPachage.h"
 
+extern NSString* const AMGameControllerRoundTimeRemainChangeValueNotification;
+extern NSString* const AMGameControllerRoundTimeUpNotification;
+
+extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey;
+
 @interface AMGameContoller : NSObject
 
+- (NSArray*) getTeamsList;
 - (NSArray*) getAllTeamsName;
+- (NSArray*) getAllTeamsScore;
 - (BOOL) addTeamWithName:(NSString*) name;
 - (BOOL) changeNameOfTeamAtIndex:(NSInteger)index toName:(NSString*) name;
 - (void) removeTeamAtIndex:(NSInteger) index;
@@ -25,10 +32,19 @@
         andExtraQuest:(BOOL) extraQuest;
 - (NSArray*) getAllWordPackages;
 - (void) setWordPackageAtIndex:(NSInteger) index;
+- (NSString*) getCurrentTeam;
+- (NSString*) getWinnerTeam;
 
-- (void) nextTeamStartGameInRount:(NSInteger) round;
+- (void) startGameRound;
 - (void) addCorrectAnswer;
 - (void) addNotAnswered;
+- (NSString*) getWord;
 - (BOOL) isEndGame;
+
+- (BOOL) lastWordToEveryone;
+- (BOOL) haveExtraQuest;
+- (NSInteger) getRoundTime;
+- (NSInteger) getAnsweredCount;
+- (NSInteger) getNotAnsweredCount;
 
 @end

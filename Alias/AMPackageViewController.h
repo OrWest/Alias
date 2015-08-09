@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AMGameContoller.h"
 
-@interface AMPackageViewController : UIViewController <UITableViewDataSource>
+@interface AMPackageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) AMGameContoller* gameController;
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 
-- (void) installGameController:(AMGameContoller*) gameController;
 
 @end

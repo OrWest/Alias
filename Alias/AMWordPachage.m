@@ -40,6 +40,11 @@
             break;
     }
     
+    [self refreshUnviewedWords];
+}
+
+- (void) refreshUnviewedWords {
+    self.unviewedWords = [NSMutableArray arrayWithArray:self.words];
 }
 
 @end

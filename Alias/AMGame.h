@@ -25,6 +25,6 @@
 @property (assign, nonatomic) NSInteger answeredCount;
 @property (assign, nonatomic) NSInteger notAnsweredCount;
 
-- (void) startGameWithTeam:(AMTeam*) team andRound:(NSInteger) round;
+- (void) startGame;
 
 @end

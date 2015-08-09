@@ -13,10 +13,12 @@
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 @property (weak, nonatomic) IBOutlet UIButton* nextButton;
 @property (assign, nonatomic) NSInteger teamCheckedCount;
+@property (weak, nonatomic) IBOutlet UILabel *roundTimeInSecondLabel;
+@property (weak, nonatomic) IBOutlet UILabel *wordsToWinLabel;
+@property (weak, nonatomic) IBOutlet UISlider *roundTimeSlider;
+@property (weak, nonatomic) IBOutlet UISlider *wordsToWinSlider;
 @property (weak, nonatomic) IBOutlet UIButton *lastWordChecker;
 @property (weak, nonatomic) IBOutlet UIButton *extraQuestChecker;
-@property (weak, nonatomic) IBOutlet UILabel *roundTimeInSecond;
-@property (weak, nonatomic) IBOutlet UILabel *wordsToWin;
 
 - (IBAction) pressBackAction:(UIButton*) sender;
 - (IBAction)pressCheckerAction:(UIButton *)sender;

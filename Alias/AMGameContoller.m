@@ -8,6 +8,14 @@
 
 #import "AMGameContoller.h"
 
+extern NSString* const AMGameControllerRoundTimeRemainChangeValueNotification =
+    @"AMGameControllerRoundTimeRemainChangeValueNotification";
+extern NSString* const AMGameControllerRoundTimeUpNotification =
+    @"AMGameControllerRoundTimeUpNotification";
+
+extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
+    @"AMGameControllerRoundTimeRemainChangeValueUserInfoKey";
+
 @interface AMGameContoller ()
 
 @property (strong, nonatomic) NSMutableArray* teams;
@@ -45,13 +53,32 @@
 
 #pragma mark - Team manipulation
 
-- (NSArray*) getAllTeamsName {
+- (NSArray*) getTeamsList {
     NSMutableArray* teamsName = [NSMutableArray array];
     for (AMTeam* team in self.teams) {
         [teamsName addObject:team.name];
     }
     
     return teamsName;
+}
+
+- (NSArray*) getAllTeamsName {
+    NSMutableArray* teamsName = [NSMutableArray array];
+    for (AMTeam* team in self.currentGame.teams) {
+        [teamsName addObject:team.name];
+    }
+    
+    return teamsName;
+}
+
+- (NSArray*) getAllTeamsScore {
+    NSMutableArray* teamsScore = [NSMutableArray array];
+    
+    for (AMTeam* team in self.currentGame.teams) {
+        [teamsScore addObject:[NSString stringWithFormat:@"%ld", team.score]];
+    }
+    
+    return teamsScore;
 }
 
 - (BOOL) addTeamWithName:(NSString *)name {
@@ -107,6 +134,10 @@
         AMTeam* team = [self.teams objectAtIndex:teamIndex];
         
         [gameTeams addObject:team];
+        
+        if (i == 0) {
+            self.currentGame.currentTeam = team;
+        }
     }
     
     self.currentGame.teams = gameTeams;
@@ -140,26 +171,28 @@
     }
 }
 
-#pragma mark - Game manipulation
-
-- (void) nextTeamStartGameInRount:(NSInteger) round {
-    if (!self.currentGame.currentTeam) {
-        [self startTeam:[self.currentGame.teams firstObject] andRound:round];
-    } else {
-        NSInteger indexOfCurrentTeam =
-            [self.currentGame.teams indexOfObject:self.currentGame.currentTeam];
-        if ([self.currentGame.teams count] > indexOfCurrentTeam + 1) {
-            [self startTeam:[self.currentGame.teams objectAtIndex:indexOfCurrentTeam + 1]
-                   andRound:round];
-        } else {
-            NSLog(@"Bad invoke nextTeam");
-        }
-    }
+- (NSString*) getCurrentTeam {
+    return self.currentGame.currentTeam.name;
 }
 
-- (void) startTeam:(AMTeam*) team andRound:(NSInteger) round {
-    [self.currentGame startGameWithTeam:team andRound:round];
+- (NSString *)getWinnerTeam {
+    NSInteger bestScore = 0;
+    AMTeam* teamWithBestScore = nil;
     
+    for (AMTeam* team in self.currentGame.teams) {
+        if (team.score > bestScore) {
+            bestScore = team.score;
+            teamWithBestScore = team;
+        }
+    }
+    
+    return teamWithBestScore.name;
+}
+
+#pragma mark - Game manipulation
+
+- (void) startGameRound {
+    self.currentGame.secondRemain = self.currentGame.roundTimeInSecond;
     self.roundTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                        target:self
                                                      selector:@selector(everySecondAction)
@@ -176,50 +209,75 @@
     self.currentGame.notAnsweredCount++;
 }
 
-- (void) endRound:(NSInteger) round{
+- (NSString *)getWord {
+    NSMutableArray* unviewedWords = self.currentGame.currentWordPocket.unviewedWords;
+    NSInteger randomIndex = arc4random_uniform((int)[unviewedWords count]);
+    
+    NSString* returnString = [unviewedWords objectAtIndex:randomIndex];
+    [unviewedWords removeObjectAtIndex:randomIndex];
+    
+    return returnString;
+}
+
+- (void) endRound{
     AMTeam* currentTeam = self.currentGame.currentTeam;
+    [self.currentGame.currentWordPocket refreshUnviewedWords];
+    
     if ([currentTeam isEqual:[self.currentGame.teams lastObject]]) {
-        if ([self isEndGame]) {
-            //invoke end game
-        } else {
-            self.currentGame.currentTeam = nil;
-            round++;
-            [self nextTeamStartGameInRount:round];
-        }
+        self.currentGame.currentTeam = [self.currentGame.teams firstObject];
+        self.currentGame.round++;
+        
     } else {
-        [self nextTeamStartGameInRount:round];
+        NSInteger indexOfCurrentTeam =
+        [self.currentGame.teams indexOfObject:currentTeam];
+        self.currentGame.currentTeam =
+        [self.currentGame.teams objectAtIndex:indexOfCurrentTeam + 1];
     }
 }
 
 - (BOOL) isEndGame {
     NSArray* teams = self.currentGame.teams;
     
-    NSInteger bestScore = 0;
-    AMTeam* teamWithBestScore = nil;
+    AMTeam* currentTeam = self.currentGame.currentTeam;
     
-    for (AMTeam* team in teams) {
-        if (team.score > bestScore) {
-            bestScore = team.score;
-            teamWithBestScore = team;
-        }
-    }
+    NSInteger scoreOnRound = self.currentGame.answeredCount - self.currentGame.notAnsweredCount;
+    currentTeam.score += scoreOnRound;
+    self.currentGame.answeredCount = 0;
+    self.currentGame.notAnsweredCount = 0;
     
-    if (bestScore > self.currentGame.scoreToWin) {
-        NSInteger teamCountWithBestScore = 0;
+    if ([currentTeam isEqual:[self.currentGame.teams lastObject]]) {
+        NSInteger bestScore = 0;
+        AMTeam* teamWithBestScore = nil;
+        
         for (AMTeam* team in teams) {
-            if (team.score == bestScore) {
-                teamCountWithBestScore++;
+            if (team.score > bestScore) {
+                bestScore = team.score;
+                teamWithBestScore = team;
             }
         }
         
-        if (teamCountWithBestScore > 1) {
-            return NO;
+        if (bestScore > self.currentGame.scoreToWin) {
+            NSInteger teamCountWithBestScore = 0;
+            for (AMTeam* team in teams) {
+                if (team.score == bestScore) {
+                    teamCountWithBestScore++;
+                }
+            }
+            
+            if (teamCountWithBestScore > 1) {
+                [self endRound];
+                return NO;
+            } else {
+                return YES;
+            }
         } else {
-            return YES;
+            [self endRound];
+            return NO;
         }
-    } else {
-        return NO;
+
     }
+    [self endRound];
+    return NO;
 }
 
 
@@ -229,14 +287,58 @@
     if (self.currentGame.secondRemain > 0) {
         self.currentGame.secondRemain--;
         NSLog(@"Timer: %ld", self.currentGame.secondRemain);
+        [self postNotificationAboutRoundTimeRemain:self.currentGame.secondRemain];
     }
     else
     {
         NSLog(@"Game ended: %ld", self.currentGame.secondRemain);
         [self.roundTimer invalidate];
+        [self postNotificationAboutRountTimeUp];
         //invoke end round
     }
 }
+
+
+#pragma mark - Notifications
+
+
+- (void) postNotificationAboutRoundTimeRemain:(NSInteger) timeRemain {
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:[[NSNumber alloc] initWithInteger:timeRemain]
+                                                         forKey:AMGameControllerRoundTimeRemainChangeValueUserInfoKey];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:AMGameControllerRoundTimeRemainChangeValueNotification
+                                                        object:nil
+                                                      userInfo:userInfo];
+}
+
+- (void) postNotificationAboutRountTimeUp {
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:AMGameControllerRoundTimeUpNotification object:nil];
+}
+
+
+#pragma mark - Getters
+
+- (BOOL) lastWordToEveryone {
+    return self.currentGame.lastWordForEveryone;
+}
+
+- (BOOL) haveExtraQuest {
+    return self.currentGame.extraQuest;
+}
+
+- (NSInteger) getRoundTime {
+    return self.currentGame.roundTimeInSecond;
+}
+
+- (NSInteger) getAnsweredCount {
+    return self.currentGame.answeredCount;
+}
+
+- (NSInteger) getNotAnsweredCount {
+    return self.currentGame.notAnsweredCount;
+}
+
 
 
 @end

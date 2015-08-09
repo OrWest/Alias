@@ -18,9 +18,11 @@ typedef enum {
 
 @property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSArray* words;
+@property (strong, nonatomic) NSMutableArray* unviewedWords;
 @property (assign, nonatomic) AMGameDifficulty difficulty;
 
 
 - (instancetype)initPachageWithDifficulty:(AMGameDifficulty) difficulty;
+- (void) refreshUnviewedWords;
 
 @end

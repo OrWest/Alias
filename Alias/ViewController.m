@@ -23,14 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.gameController = [[AMGameContoller alloc] init];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Actions
@@ -52,11 +44,11 @@
 }
 
 - (IBAction)changeRoundTimeAction:(UISlider *)sender {
-    self.roundTimeInSecond.text = [NSString stringWithFormat:@"%d",(int)sender.value];
+    self.roundTimeInSecondLabel.text = [NSString stringWithFormat:@"%d",(int)sender.value];
 }
 
 - (IBAction)changeWordsToWinAction:(UISlider *)sender {
-    self.wordsToWin.text = [NSString stringWithFormat:@"%d",(int)sender.value];
+    self.wordsToWinLabel.text = [NSString stringWithFormat:@"%d",(int)sender.value];
 
 }
 
@@ -64,7 +56,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [[self.gameController getAllTeamsName] count];
+    return [[self.gameController getTeamsList] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,7 +66,7 @@
     AMTeamCell* cell = [self.tableView dequeueReusableCellWithIdentifier:teamIdentifier];
     
     if (cell) {
-        cell.teamName.text = [[self.gameController getAllTeamsName] objectAtIndex:indexPath.row];
+        cell.teamName.text = [[self.gameController getTeamsList] objectAtIndex:indexPath.row];
     }
     
     
@@ -88,20 +80,33 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"NewGame"]) {
         self.teamCheckedCount = 0;
+        
+        self.gameController = [[AMGameContoller alloc] init];
+        
+        [segue.destinationViewController setGameController:self.gameController];
+        
     } else if ([segue.identifier isEqualToString:@"TeamChecked"]) {
         NSMutableArray* teamsToPlay = [NSMutableArray array];
-        for (int i = 0; i < [[self.gameController getAllTeamsName] count]; i++) {
+        for (int i = 0; i < [[self.gameController getTeamsList] count]; i++) {
             AMTeamCell* cell = (AMTeamCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             if (cell.checked) {
                 [teamsToPlay addObject:[NSNumber numberWithInteger:i]];
             }
         }
+        
+        [self.gameController createNewGameWithTeamsAtIndexes:teamsToPlay];
+        
         self.lastWordChecked = NO;
         self.extraQuestChecked = NO;
         
-        //add teams indexes - teamsToPlay
+        [segue.destinationViewController setGameController:self.gameController];
     } else if ([segue.identifier isEqualToString:@"SetSettings"]) {
-        [segue.destinationViewController installGameController:self.gameController];
+        [segue.destinationViewController setGameController:self.gameController];
+        
+        [self.gameController setRoundTime:self.roundTimeSlider.value
+                           wordCountToWin:self.wordsToWinSlider.value
+                       lastWordToEveryone:self.lastWordChecked
+                            andExtraQuest:self.extraQuestChecked];
     }
 }
 
