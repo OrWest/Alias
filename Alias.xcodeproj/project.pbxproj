@@ -13,9 +13,10 @@
 		9755B0171B726509002286BF /* AMTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0161B726509002286BF /* AMTeam.m */; };
 		9755B01A1B726586002286BF /* AMGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B0191B726586002286BF /* AMGame.m */; };
 		9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9755B01C1B72662D002286BF /* AMWordPachage.m */; };
+		9758E1B21B78BE830020F8A5 /* AMListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9758E1B11B78BE830020F8A5 /* AMListViewController.m */; };
 		979882571B7217EC00580188 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882561B7217EC00580188 /* main.m */; };
 		9798825A1B7217EC00580188 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882591B7217EC00580188 /* AppDelegate.m */; };
-		9798825D1B7217EC00580188 /* TeamAndSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* TeamAndSettingsViewController.m */; };
+		9798825D1B7217EC00580188 /* AMTeamAndSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9798825C1B7217EC00580188 /* AMTeamAndSettingsViewController.m */; };
 		979882621B7217EC00580188 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979882611B7217EC00580188 /* Images.xcassets */; };
 		979882711B7217ED00580188 /* AliasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882701B7217ED00580188 /* AliasTests.m */; };
 		9798829C1B7218A900580188 /* add team click.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798827B1B7218A900580188 /* add team click.png */; };
@@ -53,8 +54,14 @@
 		979882BC1B7218A900580188 /* round logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9798829B1B7218A900580188 /* round logo.png */; };
 		979882C01B721E2C00580188 /* Obelix pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 979882BE1B7218D200580188 /* Obelix pro.ttf */; };
 		979882C51B725AF700580188 /* AMGameContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 979882C41B725AF700580188 /* AMGameContoller.m */; };
+		97A5F35D1B78ABCD00466547 /* back arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 97A5F35C1B78ABCD00466547 /* back arrow.png */; };
 		97E6905D1B7690E100B5970B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E6905C1B7690E100B5970B /* Main.storyboard */; };
 		97E956F31B75443800122719 /* AMStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E956F21B75443800122719 /* AMStartGameViewController.m */; };
+		97EE0AC71B77D960003EB9D6 /* Elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE0AC61B77D960003EB9D6 /* Elephant.png */; };
+		97EE0ACA1B77DB22003EB9D6 /* down arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE0AC81B77DB22003EB9D6 /* down arrow.png */; };
+		97EE0ACB1B77DB22003EB9D6 /* up arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EE0AC91B77DB22003EB9D6 /* up arrow.png */; };
+		97EE0ACE1B77E011003EB9D6 /* AMRulesAndBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EE0ACD1B77E011003EB9D6 /* AMRulesAndBuyViewController.m */; };
+		97EE0AD11B77EB6E003EB9D6 /* UIView+UITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EE0AD01B77EB6E003EB9D6 /* UIView+UITableViewCell.m */; };
 		97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF79E11B765E49008B93D9 /* AMEndViewController.m */; };
 		97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EFAF891B760A35009B688A /* AMPlayViewController.m */; };
 /* End PBXBuildFile section */
@@ -82,13 +89,15 @@
 		9755B0191B726586002286BF /* AMGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGame.m; sourceTree = "<group>"; };
 		9755B01B1B72662D002286BF /* AMWordPachage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMWordPachage.h; sourceTree = "<group>"; };
 		9755B01C1B72662D002286BF /* AMWordPachage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMWordPachage.m; sourceTree = "<group>"; };
+		9758E1B01B78BE830020F8A5 /* AMListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMListViewController.h; sourceTree = "<group>"; };
+		9758E1B11B78BE830020F8A5 /* AMListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMListViewController.m; sourceTree = "<group>"; };
 		979882511B7217EC00580188 /* Alias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979882551B7217EC00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		979882561B7217EC00580188 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		979882581B7217EC00580188 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		979882591B7217EC00580188 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9798825B1B7217EC00580188 /* TeamAndSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamAndSettingsViewController.h; sourceTree = "<group>"; };
-		9798825C1B7217EC00580188 /* TeamAndSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamAndSettingsViewController.m; sourceTree = "<group>"; };
+		9798825B1B7217EC00580188 /* AMTeamAndSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMTeamAndSettingsViewController.h; sourceTree = "<group>"; };
+		9798825C1B7217EC00580188 /* AMTeamAndSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMTeamAndSettingsViewController.m; sourceTree = "<group>"; };
 		979882611B7217EC00580188 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9798826A1B7217ED00580188 /* AliasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AliasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9798826F1B7217ED00580188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,9 +138,17 @@
 		979882BE1B7218D200580188 /* Obelix pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Obelix pro.ttf"; sourceTree = "<group>"; };
 		979882C31B725AF700580188 /* AMGameContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMGameContoller.h; sourceTree = "<group>"; };
 		979882C41B725AF700580188 /* AMGameContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMGameContoller.m; sourceTree = "<group>"; };
+		97A5F35C1B78ABCD00466547 /* back arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back arrow.png"; sourceTree = "<group>"; };
 		97E6905C1B7690E100B5970B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		97E956F11B75443800122719 /* AMStartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStartGameViewController.h; sourceTree = "<group>"; };
 		97E956F21B75443800122719 /* AMStartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStartGameViewController.m; sourceTree = "<group>"; };
+		97EE0AC61B77D960003EB9D6 /* Elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elephant.png; sourceTree = "<group>"; };
+		97EE0AC81B77DB22003EB9D6 /* down arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down arrow.png"; sourceTree = "<group>"; };
+		97EE0AC91B77DB22003EB9D6 /* up arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up arrow.png"; sourceTree = "<group>"; };
+		97EE0ACC1B77E011003EB9D6 /* AMRulesAndBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMRulesAndBuyViewController.h; sourceTree = "<group>"; };
+		97EE0ACD1B77E011003EB9D6 /* AMRulesAndBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMRulesAndBuyViewController.m; sourceTree = "<group>"; };
+		97EE0ACF1B77EB6E003EB9D6 /* UIView+UITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UITableViewCell.h"; sourceTree = "<group>"; };
+		97EE0AD01B77EB6E003EB9D6 /* UIView+UITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UITableViewCell.m"; sourceTree = "<group>"; };
 		97EF79E01B765E49008B93D9 /* AMEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMEndViewController.h; sourceTree = "<group>"; };
 		97EF79E11B765E49008B93D9 /* AMEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMEndViewController.m; sourceTree = "<group>"; };
 		97EFAF881B760A35009B688A /* AMPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPlayViewController.h; sourceTree = "<group>"; };
@@ -206,6 +223,8 @@
 				979882C31B725AF700580188 /* AMGameContoller.h */,
 				979882C41B725AF700580188 /* AMGameContoller.m */,
 				97E956F41B75444600122719 /* View controllers */,
+				97EE0ACF1B77EB6E003EB9D6 /* UIView+UITableViewCell.h */,
+				97EE0AD01B77EB6E003EB9D6 /* UIView+UITableViewCell.m */,
 				979882581B7217EC00580188 /* AppDelegate.h */,
 				979882591B7217EC00580188 /* AppDelegate.m */,
 				97E6905C1B7690E100B5970B /* Main.storyboard */,
@@ -245,6 +264,10 @@
 		9798827A1B7218A900580188 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				97EE0AC81B77DB22003EB9D6 /* down arrow.png */,
+				97EE0AC91B77DB22003EB9D6 /* up arrow.png */,
+				97A5F35C1B78ABCD00466547 /* back arrow.png */,
+				97EE0AC61B77D960003EB9D6 /* Elephant.png */,
 				9798827B1B7218A900580188 /* add team click.png */,
 				9798827C1B7218A900580188 /* add team.png */,
 				9798827D1B7218A900580188 /* bg.png */,
@@ -302,8 +325,8 @@
 		97E956F41B75444600122719 /* View controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9798825B1B7217EC00580188 /* TeamAndSettingsViewController.h */,
-				9798825C1B7217EC00580188 /* TeamAndSettingsViewController.m */,
+				9798825B1B7217EC00580188 /* AMTeamAndSettingsViewController.h */,
+				9798825C1B7217EC00580188 /* AMTeamAndSettingsViewController.m */,
 				97496D0E1B750DA1003D0F4E /* AMPackageViewController.h */,
 				97496D0F1B750DA1003D0F4E /* AMPackageViewController.m */,
 				97E956F11B75443800122719 /* AMStartGameViewController.h */,
@@ -312,6 +335,10 @@
 				97EFAF891B760A35009B688A /* AMPlayViewController.m */,
 				97EF79E01B765E49008B93D9 /* AMEndViewController.h */,
 				97EF79E11B765E49008B93D9 /* AMEndViewController.m */,
+				97EE0ACC1B77E011003EB9D6 /* AMRulesAndBuyViewController.h */,
+				97EE0ACD1B77E011003EB9D6 /* AMRulesAndBuyViewController.m */,
+				9758E1B01B78BE830020F8A5 /* AMListViewController.h */,
+				9758E1B11B78BE830020F8A5 /* AMListViewController.m */,
 			);
 			name = "View controllers";
 			sourceTree = "<group>";
@@ -408,7 +435,10 @@
 				979882621B7217EC00580188 /* Images.xcassets in Resources */,
 				979882B81B7218A900580188 /* field pay.png in Resources */,
 				9798829F1B7218A900580188 /* btn add words click.png in Resources */,
+				97EE0ACA1B77DB22003EB9D6 /* down arrow.png in Resources */,
+				97A5F35D1B78ABCD00466547 /* back arrow.png in Resources */,
 				979882B21B7218A900580188 /* btn start game.png in Resources */,
+				97EE0AC71B77D960003EB9D6 /* Elephant.png in Resources */,
 				979882B91B7218A900580188 /* logo.png in Resources */,
 				979882A91B7218A900580188 /* btn game rule.png in Resources */,
 				97E6905D1B7690E100B5970B /* Main.storyboard in Resources */,
@@ -427,6 +457,7 @@
 				9798829D1B7218A900580188 /* add team.png in Resources */,
 				979882BA1B7218A900580188 /* map.png in Resources */,
 				979882AA1B7218A900580188 /* btn new game click.png in Resources */,
+				97EE0ACB1B77DB22003EB9D6 /* up arrow.png in Resources */,
 				979882AC1B7218A900580188 /* btn next click.png in Resources */,
 				979882AB1B7218A900580188 /* btn new game.png in Resources */,
 				979882B41B7218A900580188 /* check OFF.png in Resources */,
@@ -452,16 +483,19 @@
 				97EFAF8A1B760A35009B688A /* AMPlayViewController.m in Sources */,
 				9755B01D1B72662D002286BF /* AMWordPachage.m in Sources */,
 				9755B0171B726509002286BF /* AMTeam.m in Sources */,
-				9798825D1B7217EC00580188 /* TeamAndSettingsViewController.m in Sources */,
+				9798825D1B7217EC00580188 /* AMTeamAndSettingsViewController.m in Sources */,
+				97EE0AD11B77EB6E003EB9D6 /* UIView+UITableViewCell.m in Sources */,
 				97496D101B750DA1003D0F4E /* AMPackageViewController.m in Sources */,
 				9798825A1B7217EC00580188 /* AppDelegate.m in Sources */,
 				97EF79E21B765E49008B93D9 /* AMEndViewController.m in Sources */,
 				97E956F31B75443800122719 /* AMStartGameViewController.m in Sources */,
 				975361251B74CB7B00C76208 /* AMTeamCell.m in Sources */,
+				9758E1B21B78BE830020F8A5 /* AMListViewController.m in Sources */,
 				9755B01A1B726586002286BF /* AMGame.m in Sources */,
 				979882C51B725AF700580188 /* AMGameContoller.m in Sources */,
 				975361291B74EF4900C76208 /* AMWordPachageCell.m in Sources */,
 				979882571B7217EC00580188 /* main.m in Sources */,
+				97EE0ACE1B77E011003EB9D6 /* AMRulesAndBuyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
