@@ -11,9 +11,9 @@
 
 @interface AMPackageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) AMGameContoller* gameController;
-
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
+
+- (IBAction)backButtonAction:(id)sender;
 
 
 @end

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Word packages</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Легкий</string>
+			<key>Difficulty</key>
+			<integer>0</integer>
+			<key>Words</key>
+			<array>
+				<string>Медвеженок</string>
+				<string>Артист</string>
+				<string>Книга</string>
+				<string>Море</string>
+				<string>Ветер</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Оптимальный</string>
+			<key>Difficulty</key>
+			<integer>1</integer>
+			<key>Words</key>
+			<array>
+				<string>Мир</string>
+				<string>Телефон</string>
+				<string>Кольцо</string>
+				<string>Кино</string>
+				<string>Волосы</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Термины</string>
+			<key>Difficulty</key>
+			<integer>2</integer>
+			<key>Words</key>
+			<array>
+				<string>Коллайдер</string>
+				<string>Интернет</string>
+				<string>Свадьба</string>
+				<string>Провод</string>
+				<string>Смерть</string>
+			</array>
+		</dict>
+	</array>
+	<key>Teams</key>
+	<array>
+		<string>Минеры</string>
+		<string>Декады</string>
+		<string>Арчи</string>
+	</array>
+	<key>Continue</key>
+	<false/>
+	<key>Extra quests</key>
+	<array>
+		<string>Икайте через каждое слово при объяснении слов команде</string>
+		<string>Ходите при объяснении слов команде</string>
+		<string>Танцуйте, пока можете</string>
+	</array>
+</dict>
+</plist>

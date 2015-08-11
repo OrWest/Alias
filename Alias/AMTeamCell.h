@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "AMTeamAndSettingsViewController.h"
 
 @interface AMTeamCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *teamName;
-@property (weak, nonatomic) IBOutlet ViewController* viewController;
+@property (weak, nonatomic) IBOutlet UIButton* checkerButton;
+@property (weak, nonatomic) IBOutlet AMTeamAndSettingsViewController* viewController;
 @property (assign, nonatomic) BOOL checked;
 
 - (IBAction)pressTeamCheckerAction:(UIButton *)sender;
+- (IBAction)changeTeamNameAction:(UIButton *)sender;
 
 @end

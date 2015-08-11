@@ -10,6 +10,7 @@
 #import "AMGame.h"
 #import "AMTeam.h"
 #import "AMWordPachage.h"
+#import "AMDao.h"
 
 extern NSString* const AMGameControllerRoundTimeRemainChangeValueNotification;
 extern NSString* const AMGameControllerRoundTimeUpNotification;
@@ -18,9 +19,15 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey;
 
 @interface AMGameContoller : NSObject
 
++ (instancetype) instance;
+
+- (void) saveProperties;
+- (BOOL) haveContinue;
+- (void) loadLastGameProperties;
+
 - (NSArray*) getTeamsList;
-- (NSArray*) getAllTeamsName;
-- (NSArray*) getAllTeamsScore;
+- (NSArray*) getTeamsNamesInGame;
+- (NSArray*) getTeamsScoreInGame;
 - (BOOL) addTeamWithName:(NSString*) name;
 - (BOOL) changeNameOfTeamAtIndex:(NSInteger)index toName:(NSString*) name;
 - (void) removeTeamAtIndex:(NSInteger) index;
@@ -30,14 +37,14 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey;
        wordCountToWin:(NSInteger) wordCount
    lastWordToEveryone:(BOOL) lastWord
         andExtraQuest:(BOOL) extraQuest;
-- (NSArray*) getAllWordPackages;
 - (void) setWordPackageAtIndex:(NSInteger) index;
-- (NSString*) getCurrentTeam;
 - (NSString*) getWinnerTeam;
+- (NSString*) getExtraQuest;
 
 - (void) startGameRound;
 - (void) addCorrectAnswer;
 - (void) addNotAnswered;
+- (void) addLastWordPointToTeamAtIndex:(NSInteger) index;
 - (NSString*) getWord;
 - (BOOL) isEndGame;
 
@@ -46,5 +53,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey;
 - (NSInteger) getRoundTime;
 - (NSInteger) getAnsweredCount;
 - (NSInteger) getNotAnsweredCount;
+- (NSString*) getCurrentTeam;
+- (NSArray*) getAllWordPackages;
 
 @end

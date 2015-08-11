@@ -13,7 +13,6 @@
 @interface AMGame : NSObject
 
 @property (strong, nonatomic) NSArray* teams;
-@property (strong, nonatomic) AMWordPachage* currentWordPocket;
 @property (assign, nonatomic) NSInteger roundTimeInSecond;
 @property (assign, nonatomic) NSInteger scoreToWin;
 @property (assign, nonatomic) BOOL lastWordForEveryone;
@@ -22,6 +21,7 @@
 @property (assign, nonatomic) NSInteger round;
 @property (assign, nonatomic) NSInteger secondRemain;
 @property (strong, nonatomic) AMTeam* currentTeam;
+@property (strong, nonatomic) AMWordPachage* currentWordPackage;
 @property (assign, nonatomic) NSInteger answeredCount;
 @property (assign, nonatomic) NSInteger notAnsweredCount;
 

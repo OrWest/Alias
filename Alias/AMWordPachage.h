@@ -22,7 +22,7 @@ typedef enum {
 @property (assign, nonatomic) AMGameDifficulty difficulty;
 
 
-- (instancetype)initPachageWithDifficulty:(AMGameDifficulty) difficulty;
+- (instancetype)initPachageWithName:(NSString*) name wordsFromArray:(NSArray*) words andDifficulty:(AMGameDifficulty) difficulty;
 - (void) refreshUnviewedWords;
 
 @end

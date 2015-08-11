@@ -13,10 +13,24 @@
 
 @interface AMPackageViewController ()
 
+@property (assign, nonatomic) NSInteger selectedIndexInTableView;
+@property (strong, nonatomic) AMGameContoller* gameController;
+
 @end
 
 @implementation AMPackageViewController
 
+#pragma mark - View methods
+
+- (void)viewDidLoad {
+    self.gameController = [AMGameContoller instance];
+}
+
+#pragma mark - Actions
+
+- (void)backButtonAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -52,7 +66,7 @@
         
         cell.difficulty.text = difficultyString;
         
-        if (indexPath.row == 0) {
+        if (indexPath.row == self.selectedIndexInTableView) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
@@ -63,14 +77,14 @@
 
 #pragma mark - UITableViewDelegate
 
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     for (int i = 0; i < [[self.gameController getAllWordPackages] count]; i++) {
         UITableViewCell* cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if (indexPath.row == i) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            self.selectedIndexInTableView = i;
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
@@ -86,10 +100,9 @@
         UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
             [self.gameController setWordPackageAtIndex:i];
+            break;
         }
     }
-    
-    [segue.destinationViewController setGameController:self.gameController];
 }
 
 

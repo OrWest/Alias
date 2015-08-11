@@ -18,43 +18,125 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 
 @interface AMGameContoller ()
 
+@property (strong, nonatomic) AMDao* dao;
 @property (strong, nonatomic) NSMutableArray* teams;
 @property (strong, nonatomic) NSMutableArray* wordPackages;
 @property (strong, nonatomic) AMGame* currentGame;
 @property (strong, nonatomic) NSTimer* roundTimer;
+@property (strong, nonatomic) NSMutableArray* extraQuests;
 
 @end
 
 @implementation AMGameContoller
 
-#pragma mark - Initialize
+#pragma mark - Initialize(Singleton) and destroy
+
++ (instancetype) instance {
+    static AMGameContoller* instance;
+    
+    if (!instance) {
+        instance = [[AMGameContoller alloc] init];
+    }
+    
+    return instance;
+}
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.teams = [NSMutableArray array];
-        self.wordPackages = [NSMutableArray array];
+        self.dao = [[AMDao alloc] init];
+        self.teams          = [NSMutableArray array];
+        self.wordPackages   = [NSMutableArray array];
+        self.extraQuests    = [NSMutableArray array];
         
-        NSArray* defaultTeamNames = [NSArray arrayWithObjects:@"Минеры", @"Декады", nil];
+        NSArray* teamNames                  = [self.dao getTeams];
+        NSArray* quests                     = [self.dao getExtraQuests];
+        NSArray* wordPackagesDictionaries   = [self.dao getWordPackages];
         
-        for (int i = 0; i < 2; i++) {
-            AMTeam* team = [[AMTeam alloc] initWithName:[defaultTeamNames objectAtIndex:i]];
+        for (NSString* teamName in teamNames) {
+            AMTeam* team = [[AMTeam alloc] initWithName:teamName];
             [self.teams addObject:team];
         }
-        
-        for (int i = 0; i < 3; i++) {
-            AMWordPachage* pachage = [[AMWordPachage alloc] initPachageWithDifficulty:i];
-            [self.wordPackages addObject:pachage];
+        for (NSString* quest in quests) {
+            [self.extraQuests addObject:quest];
+
         }
+        
+        NSMutableArray* wordPackages = [NSMutableArray array];
+        for (NSDictionary* wordPackageDictionary in wordPackagesDictionaries) {
+            NSString* name = [wordPackageDictionary objectForKey:@"Name"];
+            AMGameDifficulty difficulty =
+            (AMGameDifficulty)[[wordPackageDictionary objectForKey:@"Difficulty"] integerValue];
+            NSArray* words = [wordPackageDictionary objectForKey:@"Words"];
+            AMWordPachage* wp = [[AMWordPachage alloc] initPachageWithName:name
+                                                            wordsFromArray:words
+                                                             andDifficulty:difficulty];
+            [wordPackages addObject:wp];
+        }
+        self.wordPackages = wordPackages;
+        
     }
     return self;
 }
+
+#pragma mark - Propreties methods;
+
+- (void)saveProperties {
+    [self.dao saveProperties];
+}
+
+- (BOOL)haveContinue {
+    return [self.dao haveContinue];
+}
+
+- (void) loadLastGameProperties {
+    AMGame* game = [[AMGame alloc] init];
+    
+    NSArray* allTeams = [self getTeamsList];
+    NSMutableArray* teamsInGame = [NSMutableArray array];
+    for (NSString* teamName in [self.dao getTeamsInGame]) {
+        NSInteger index = [allTeams indexOfObject:teamName];
+        [teamsInGame addObject:[self.teams objectAtIndex:index]];
+    }
+    
+    game.teams = teamsInGame;
+    game.roundTimeInSecond      = [self.dao getRoundTime];
+    game.scoreToWin             = [self.dao getScoreToWin];
+    game.lastWordForEveryone    = [self.dao lastWordForEveryone];
+    game.extraQuest             = [self.dao haveExtraQuests];
+    game.round                  = [self.dao getRound];
+    
+    
+    NSString* currentTeamName = [self.dao getCurrentTeamName];
+    NSString* currentWordPackageName = [self.dao getCurrentWordPackageName];
+    
+    NSArray* wordPackages = [self getAllWordPackages];
+    for (int i = 0; i < [wordPackages count]; i++) {
+        AMWordPachage* wp = [wordPackages objectAtIndex:i];
+        if ([wp.name isEqualToString:currentWordPackageName]) {
+            game.currentWordPackage = wp;
+            break;
+        }
+    }
+
+    NSArray* score = [self.dao getTeamsScore];
+    for (int i = 0; i < [game.teams count]; i++) {
+        AMTeam* team = [game.teams objectAtIndex:i];
+        team.score = [[score objectAtIndex:i] integerValue];
+        if ([team.name isEqualToString:currentTeamName]) {
+            game.currentTeam = team;
+        }
+    }
+    self.currentGame = game;
+}
+
 
 #pragma mark - Team manipulation
 
 - (NSArray*) getTeamsList {
     NSMutableArray* teamsName = [NSMutableArray array];
+    
     for (AMTeam* team in self.teams) {
         [teamsName addObject:team.name];
     }
@@ -62,8 +144,9 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     return teamsName;
 }
 
-- (NSArray*) getAllTeamsName {
+- (NSArray*) getTeamsNamesInGame {
     NSMutableArray* teamsName = [NSMutableArray array];
+    
     for (AMTeam* team in self.currentGame.teams) {
         [teamsName addObject:team.name];
     }
@@ -71,7 +154,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     return teamsName;
 }
 
-- (NSArray*) getAllTeamsScore {
+- (NSArray*) getTeamsScoreInGame {
     NSMutableArray* teamsScore = [NSMutableArray array];
     
     for (AMTeam* team in self.currentGame.teams) {
@@ -82,13 +165,13 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 }
 
 - (BOOL) addTeamWithName:(NSString *)name {
-    
     BOOL uniqueName = [self isUniqueName:name];
     
-    if (uniqueName) {
+    if (uniqueName && ![name isEqualToString:@""]) {
         AMTeam* team = [[AMTeam alloc] initWithName:name];
         
         [self.teams addObject:team];
+        [self.dao addTeamWithName:name];
     }
     
     return uniqueName;
@@ -100,6 +183,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     if (uniqueName) {
         AMTeam* team = [self.teams objectAtIndex:index];
         team.name = name;
+        [self.dao changeTeamNameAtIndex:index withName:name];
     }
     
     return uniqueName;
@@ -107,6 +191,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 
 - (void) removeTeamAtIndex:(NSInteger) index {
     [self.teams removeObjectAtIndex:index];
+    [self.dao removeTeamAtIndex:index];
 }
 
 
@@ -141,6 +226,9 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     }
     
     self.currentGame.teams = gameTeams;
+    
+    [self.dao createGameWithTeams:[self getTeamsNamesInGame]];
+    [self.dao setCurrentTeamName:[[self getTeamsNamesInGame] firstObject]];
 }
 
 - (void) setRoundTime:(NSInteger) roundTime wordCountToWin:(NSInteger)
@@ -148,31 +236,25 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     if (self.currentGame) {
         AMGame* game = self.currentGame;
         
-        game.roundTimeInSecond = roundTime;
-        game.scoreToWin = wordCount;
-        game.lastWordForEveryone = lastWord;
-        game.extraQuest = extraQuest;
+        game.roundTimeInSecond      = roundTime;
+        game.scoreToWin             = wordCount;
+        game.lastWordForEveryone    = lastWord;
+        game.extraQuest             = extraQuest;
+        
+        [self.dao setGameRoundTime:roundTime
+                        scoreToWin:wordCount
+               lastWordForEveryone:lastWord
+                     andExtraQuest:extraQuest];
     }
-}
-
-- (NSArray*) getAllWordPackages {
-    NSMutableArray* tempArray = [NSMutableArray array];
-    for (AMWordPachage* package in self.wordPackages) {
-        [tempArray addObject:package];
-    }
-    
-    return tempArray;
 }
 
 - (void) setWordPackageAtIndex:(NSInteger) index {
     if (self.currentGame) {
         AMWordPachage* wordPackage = [self.wordPackages objectAtIndex:index];
-        self.currentGame.currentWordPocket = wordPackage;
+        self.currentGame.currentWordPackage = wordPackage;
+        
+        [self.dao setCurrentWordPackageName:wordPackage.name];
     }
-}
-
-- (NSString*) getCurrentTeam {
-    return self.currentGame.currentTeam.name;
 }
 
 - (NSString *)getWinnerTeam {
@@ -189,6 +271,11 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     return teamWithBestScore.name;
 }
 
+- (NSString *)getExtraQuest {
+    NSInteger randomIndex = arc4random_uniform((int)[self.extraQuests count]);
+    return [self.extraQuests objectAtIndex:randomIndex];
+}
+
 #pragma mark - Game manipulation
 
 - (void) startGameRound {
@@ -198,6 +285,8 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
                                                      selector:@selector(everySecondAction)
                                                      userInfo:nil
                                                       repeats:YES];
+    [self.dao startGame];
+    [self.dao saveProperties];
 }
 
 - (void) addCorrectAnswer {
@@ -209,8 +298,19 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     self.currentGame.notAnsweredCount++;
 }
 
+- (void)addLastWordPointToTeamAtIndex:(NSInteger)index {
+    AMTeam* team = [self.currentGame.teams objectAtIndex:index];
+    team.score++;
+    [self.dao addScore:1 toTeamWithName:team.name];
+}
+
 - (NSString *)getWord {
-    NSMutableArray* unviewedWords = self.currentGame.currentWordPocket.unviewedWords;
+    NSMutableArray* unviewedWords = self.currentGame.currentWordPackage.unviewedWords;
+    
+    if ([unviewedWords count] == 0) {
+        [self.currentGame.currentWordPackage refreshUnviewedWords];
+        unviewedWords = self.currentGame.currentWordPackage.unviewedWords;
+    }
     NSInteger randomIndex = arc4random_uniform((int)[unviewedWords count]);
     
     NSString* returnString = [unviewedWords objectAtIndex:randomIndex];
@@ -221,11 +321,12 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 
 - (void) endRound{
     AMTeam* currentTeam = self.currentGame.currentTeam;
-    [self.currentGame.currentWordPocket refreshUnviewedWords];
+    [self.currentGame.currentWordPackage refreshUnviewedWords];
     
     if ([currentTeam isEqual:[self.currentGame.teams lastObject]]) {
         self.currentGame.currentTeam = [self.currentGame.teams firstObject];
         self.currentGame.round++;
+        [self.dao setRound:self.currentGame.round];
         
     } else {
         NSInteger indexOfCurrentTeam =
@@ -233,6 +334,9 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
         self.currentGame.currentTeam =
         [self.currentGame.teams objectAtIndex:indexOfCurrentTeam + 1];
     }
+    
+    [self.dao setCurrentTeamName:self.currentGame.currentTeam.name];
+    [self.dao saveProperties];
 }
 
 - (BOOL) isEndGame {
@@ -242,6 +346,8 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     
     NSInteger scoreOnRound = self.currentGame.answeredCount - self.currentGame.notAnsweredCount;
     currentTeam.score += scoreOnRound;
+    [self.dao addScore:scoreOnRound toTeamWithName:currentTeam.name];
+    
     self.currentGame.answeredCount = 0;
     self.currentGame.notAnsweredCount = 0;
     
@@ -256,7 +362,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
             }
         }
         
-        if (bestScore > self.currentGame.scoreToWin) {
+        if (bestScore >= self.currentGame.scoreToWin) {
             NSInteger teamCountWithBestScore = 0;
             for (AMTeam* team in teams) {
                 if (team.score == bestScore) {
@@ -268,6 +374,8 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
                 [self endRound];
                 return NO;
             } else {
+                [self.dao endGame];
+                [self.dao saveProperties];
                 return YES;
             }
         } else {
@@ -286,15 +394,12 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 - (void) everySecondAction {
     if (self.currentGame.secondRemain > 0) {
         self.currentGame.secondRemain--;
-        NSLog(@"Timer: %ld", self.currentGame.secondRemain);
         [self postNotificationAboutRoundTimeRemain:self.currentGame.secondRemain];
     }
     else
     {
-        NSLog(@"Game ended: %ld", self.currentGame.secondRemain);
         [self.roundTimer invalidate];
         [self postNotificationAboutRountTimeUp];
-        //invoke end round
     }
 }
 
@@ -339,6 +444,17 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     return self.currentGame.notAnsweredCount;
 }
 
+- (NSString*) getCurrentTeam {
+    return self.currentGame.currentTeam.name;
+}
 
+- (NSArray*) getAllWordPackages {
+    NSMutableArray* tempArray = [NSMutableArray array];
+    for (AMWordPachage* package in self.wordPackages) {
+        [tempArray addObject:package];
+    }
+    
+    return tempArray;
+}
 
 @end

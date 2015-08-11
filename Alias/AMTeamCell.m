@@ -7,6 +7,7 @@
 //
 
 #import "AMTeamCell.h"
+#import "UIView+UITableViewCell.h"
 
 @implementation AMTeamCell
 
@@ -15,7 +16,7 @@
     [sender setBackgroundImage:[sender backgroundImageForState:UIControlStateHighlighted] forState:UIControlStateNormal];
     [sender setBackgroundImage:tempImage forState:UIControlStateHighlighted];
     
-    self.checked =  !self.checked;
+    self.checked = !self.checked;
     
     if (self.checked) {
         self.viewController.teamCheckedCount++;
@@ -26,9 +27,33 @@
     
     if (self.viewController.teamCheckedCount > 1) {
         [self.viewController.nextButton setHidden:NO];
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.viewController.nextButton.alpha = 1.f;
+                         } completion:^(BOOL finished) {
+                         }];
     } else {
-        [self.viewController.nextButton setHidden:YES];
-
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.viewController.nextButton.alpha = 0.f;
+                         } completion:^(BOOL finished) {
+                             if (finished) {
+                                 [self.viewController.nextButton setHidden:YES];
+                             }
+                         }];
     }
+}
+
+- (IBAction)changeTeamNameAction:(UIButton *)sender {
+    AMTeamCell* cell    = (AMTeamCell*)[sender superCell];
+    NSString* teamName  = cell.teamName.text;
+    self.viewController.indexOfChangingTeam =
+    [[[AMGameContoller instance] getTeamsList] indexOfObject:teamName];
+    
+    [self.viewController performSegueWithIdentifier:@"ChangeTeam" sender:self];
 }
 @end
