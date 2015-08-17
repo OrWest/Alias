@@ -13,6 +13,8 @@
 #pragma mark - View methods
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     self.halfAlphaViewWithSuccess.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8f];
     self.halfAlphaViewWithSuccess.transform =
     CGAffineTransformMakeTranslation(0, CGRectGetHeight(self.halfAlphaViewWithSuccess.bounds));

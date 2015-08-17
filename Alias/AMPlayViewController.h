@@ -29,5 +29,6 @@
 
 - (IBAction)tipOkAction:(UIButton *)sender;
 - (IBAction)lastWordOKAction:(UIButton *)sender;
+- (IBAction)backButtonAction:(UIButton *)sender;
 
 @end

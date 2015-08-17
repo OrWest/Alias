@@ -217,6 +217,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     for (int i = 0; i < [indexes count]; i++) {
         NSInteger teamIndex = [[indexes objectAtIndex:i] integerValue];
         AMTeam* team = [self.teams objectAtIndex:teamIndex];
+        team.score = 0;
         
         [gameTeams addObject:team];
         
@@ -280,6 +281,8 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
 
 - (void) startGameRound {
     self.currentGame.secondRemain = self.currentGame.roundTimeInSecond;
+    self.currentGame.answeredCount = 0;
+    self.currentGame.notAnsweredCount = 0;
     self.roundTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                        target:self
                                                      selector:@selector(everySecondAction)
@@ -287,6 +290,12 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
                                                       repeats:YES];
     [self.dao startGame];
     [self.dao saveProperties];
+}
+
+- (void) stopGame {
+    if ([self.roundTimer isValid]) {
+        [self.roundTimer invalidate];
+    }
 }
 
 - (void) addCorrectAnswer {
@@ -353,12 +362,10 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey =
     
     if ([currentTeam isEqual:[self.currentGame.teams lastObject]]) {
         NSInteger bestScore = 0;
-        AMTeam* teamWithBestScore = nil;
         
         for (AMTeam* team in teams) {
             if (team.score > bestScore) {
                 bestScore = team.score;
-                teamWithBestScore = team;
             }
         }
         

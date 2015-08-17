@@ -201,7 +201,8 @@
 
 - (NSMutableDictionary*) defaultProperties {
     NSString* defaultPath =
-    [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"default.plist"];
+    [[[NSBundle mainBundle] bundlePath]
+     stringByAppendingPathComponent:NSLocalizedString(@"default.plist", @"do not translate")];
     
     NSMutableDictionary* returnDictionary =
     [NSMutableDictionary dictionaryWithContentsOfFile:defaultPath];

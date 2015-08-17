@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Word packages</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Easy</string>
+			<key>Difficulty</key>
+			<integer>0</integer>
+			<key>Words</key>
+			<array>
+				<string>Teddy Bear</string>
+				<string>Artist</string>
+				<string>Book</string>
+				<string>Sea</string>
+				<string>Wind</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Optimum</string>
+			<key>Difficulty</key>
+			<integer>1</integer>
+			<key>Words</key>
+			<array>
+				<string>World</string>
+				<string>Phone</string>
+				<string>Ring</string>
+				<string>Cinema</string>
+				<string>Hair</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Terms</string>
+			<key>Difficulty</key>
+			<integer>2</integer>
+			<key>Words</key>
+			<array>
+				<string>Сollider</string>
+				<string>Internet</string>
+				<string>Wedding</string>
+				<string>Fire</string>
+				<string>Death</string>
+			</array>
+		</dict>
+	</array>
+	<key>Teams</key>
+	<array>
+		<string>Miners</string>
+		<string>Decads</string>
+		<string>Archy</string>
+	</array>
+	<key>Continue</key>
+	<false/>
+	<key>Extra quests</key>
+	<array>
+		<string>Сrying all the time in explaining the words of team</string>
+		<string>Walk in explaining the words of team</string>
+		<string>Dance</string>
+	</array>
+</dict>
+</plist>

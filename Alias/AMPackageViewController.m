@@ -23,6 +23,8 @@
 #pragma mark - View methods
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     self.gameController = [AMGameContoller instance];
 }
 
@@ -51,13 +53,13 @@
         NSString* difficultyString;
         switch (package.difficulty) {
             case 0:
-                difficultyString = @"Легко";
+                difficultyString = NSLocalizedString(@"Easy", @"Difficult");
                 break;
             case 1:
-                difficultyString = @"Средне";
+                difficultyString = NSLocalizedString(@"Medium", @"Difficult");
                 break;
             case 2:
-                difficultyString = @"Сложно";
+                difficultyString = NSLocalizedString(@"Hard", @"Difficult");
                 break;
                 
             default:

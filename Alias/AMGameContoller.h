@@ -42,6 +42,7 @@ extern NSString* const AMGameControllerRoundTimeRemainChangeValueUserInfoKey;
 - (NSString*) getExtraQuest;
 
 - (void) startGameRound;
+- (void) stopGame;
 - (void) addCorrectAnswer;
 - (void) addNotAnswered;
 - (void) addLastWordPointToTeamAtIndex:(NSInteger) index;

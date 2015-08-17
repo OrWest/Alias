@@ -27,10 +27,13 @@ typedef enum {
 #pragma mark - initialize and destroy
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.gameController = [AMGameContoller instance];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     self.wordView.layer.borderWidth = 3.0f;
     self.wordView.layer.borderColor = [UIColor redColor].CGColor;
     self.wordView.layer.cornerRadius = 10.0f;
@@ -59,7 +62,7 @@ typedef enum {
         self.endTipLabel.hidden = YES;
     }
     
-    self.roundRemainLabel.text = [NSString stringWithFormat:@"%ld", [self.gameController getRoundTime]];
+    self.roundRemainLabel.text = [NSString stringWithFormat:@"%ld", (long)[self.gameController getRoundTime]];
 }
 
 - (void)dealloc {
@@ -100,11 +103,11 @@ typedef enum {
 }
 
 - (void) refreshAnsweredCountLabel {
-    self.answeredLabel.text = [NSString stringWithFormat:@"+%ld", [self.gameController getAnsweredCount]];
+    self.answeredLabel.text = [NSString stringWithFormat:@"+%ld", (long)[self.gameController getAnsweredCount]];
 }
 
 - (void) refreshNotAnsweredCountLabel {
-    self.notAnsweredLabel.text = [NSString stringWithFormat:@"-%ld", [self.gameController getNotAnsweredCount]];
+    self.notAnsweredLabel.text = [NSString stringWithFormat:@"-%ld", (long)[self.gameController getNotAnsweredCount]];
 
 }
 
@@ -170,7 +173,7 @@ typedef enum {
     NSNumber* roundTimeRemain =
     [userInfo objectForKey:AMGameControllerRoundTimeRemainChangeValueUserInfoKey];
     self.roundRemainLabel.text =
-    [NSString stringWithFormat:@"%ld", [roundTimeRemain integerValue]];
+    [NSString stringWithFormat:@"%ld", (long)[roundTimeRemain integerValue]];
 }
 
 - (void) rountTimeUpNotificationHandle:(NSNotification*) notification {
@@ -243,11 +246,16 @@ typedef enum {
 
 }
 
+- (void)backButtonAction:(UIButton *)sender {
+    [self.gameController stopGame];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [[self.gameController getAllWordPackages] count];
+    return [[self.gameController getTeamsNamesInGame] count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
